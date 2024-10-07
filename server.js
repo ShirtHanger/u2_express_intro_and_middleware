@@ -78,25 +78,26 @@ app.get('/about-me', (req, res)=> {
     })
 })
 
-/* THIS SHOULD WORK BUT IT GETS AN ERROR FOR SOME REASON WHAT?? */
-
-// app.get('/movies', (req, res) => {
-//     res.send(
-//         {
-//             [
-//             {movieName: 'Scarface',
-//             movieReleaseDate: '1984',
-//             movieDuration: 'Three hours'},
-//             {movieName: 'Heat',
-//             movieReleaseDate: '1995',
-//             movieDuration: 'Two Hours'},
-//             {movieName: 'Killers of the Flower Moon',
-//             movieReleaseDate: '2023',
-//             movieDuration: 'Three Hours'}
-//             ]
-//         }
-//     )
-// })
+app.get('/movies', (req, res) => {
+    res.send(
+        {
+        movies: [ /* For some reason you must use a colon instead of an = here */
+            {
+            movieName: 'Scarface',
+            movieReleaseDate: '1984',
+            movieDuration: 'Three hours'},
+            {
+            movieName: 'Heat',
+            movieReleaseDate: '1995',
+            movieDuration: 'Two Hours'},
+            {
+            movieName: 'Killers of the Flower Moon',
+            movieReleaseDate: '2023',
+            movieDuration: 'Three Hours'}
+            ]
+        }
+    )
+})
 
 
 /* Dymanic endpoints */
