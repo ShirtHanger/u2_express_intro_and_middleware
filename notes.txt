@@ -1,0 +1,23 @@
+We must add express everytime we make a new project
+
+1. first type this in your command line:
+
+npm init -y
+
+(You should get a file called package.json and package-lock.json in the directory you ran this command in)
+    (Basically a file that tells your computer how to run your express stuff)
+    (DO NOT TOUCH THEM! They were made by experts!)
+
+2. THEN run this
+
+npm install express
+
+3. Install nodemon for live, proper updates
+
+npm install nodemon --save-dev
+
+4. Modify the "Scripts" section in package.json, with this below "Start"
+
+"dev": "nodemon server.js"
+
+You should be good to go after this
