@@ -21,3 +21,14 @@ npm install nodemon --save-dev
 "dev": "nodemon server.js"
 
 You should be good to go after this
+
+Notes:
+
+Cascading works different
+    When something is declared, it stops there. Repeats at bottom are ignored.
+
+EXPRESS MIDDLEWARE
+
+Must install cors to work middleware:
+
+npm install cors 

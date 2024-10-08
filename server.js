@@ -7,12 +7,18 @@ This is what we usually call BACKEND js files */
 
 const express = require('express') // Create express variable to pull the express library
 const PORT = process.env.PORT || 3002 // Tells express which port to run on
+const cors = require('cors') // See middleware.js
 /* The former keeps the used port secret. Uses secret port OR port 3002 */
 const app = express() // Define the app variable
+app.use(cors()) // See middleware.js
+app.use(express.json())
+app.use(express.urlencoded({ extended: false }))
 /* Now, similar to event listeners, link the port to the app. Whenever port is called, get the response*/
 app.listen(PORT, () => {
     console.log(`Express server listening on port ${PORT}`)
 })
+
+/* INTRO TO EXPRESS */
 
 /* ROUTES */
 
@@ -127,6 +133,20 @@ app.get('/find', (req, res)=> {
 
 
 /* This will catch all paths not defined, done using special character (*) */
+
+/* EXPRESS MIDDLEWARE */
+
+/* See notes in middleware.js for explaination of  middleware boilerplate */
+
+// next is a function that tells express to call or invoke the next function.
+
+app.get('/middleware', (req, res, next) => {
+    console.log('middleware is working') // Next will run THIS CODE first BEFORE the response is sent
+    next()
+},
+    (req, res) => /* Must restart req and res */
+        {res.send('response complete')}
+)
 
 /* Should ALWAYS be at bottom of the code
 Because anything below this is never read, due to way cascading works with express */
